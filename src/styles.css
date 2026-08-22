@@ -152,3 +152,15 @@
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card);
 }
+
+/* Hero profile card photo. The placeholder markup remains in place for accessibility,
+   while the actual headshot is supplied from the public asset. */
+main > section:first-child .aspect-square {
+  background-image: url("/headshot.svg");
+  background-size: cover;
+  background-position: center 22%;
+}
+
+main > section:first-child .aspect-square > div {
+  display: none;
+}
