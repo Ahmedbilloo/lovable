@@ -4,8 +4,6 @@ import {
   ArrowRight,
   Code2,
   Download,
-  ExternalLink,
-  FileText,
   ImageIcon,
   Linkedin,
   Mail,
@@ -158,62 +156,6 @@ function Home() {
           </div>
         </section>
 
-        {/* About */}
-        <section id="about" className="border-b border-border">
-          <div className="container-page grid gap-10 py-16 lg:grid-cols-[280px_minmax(0,1fr)]">
-            <SectionHeading eyebrow="About" title="Analytics applied to real operations." />
-            <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
-              <p>
-                I hold an M.S. in Business Analytics from California State University, Sacramento,
-                and work at the intersection of data and day-to-day operations. My professional
-                background is in pharmaceutical distribution and supply chain, where analysis has to
-                hold up against inventory, suppliers, and delivery deadlines.
-              </p>
-              <p>
-                My work spans business intelligence, demand forecasting, statistical analysis, and
-                machine learning — from building dashboards that procurement teams use daily to
-                training and evaluating predictive models.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Experience */}
-        <section id="experience" className="border-b border-border">
-          <div className="container-page grid gap-10 py-16 lg:grid-cols-[280px_minmax(0,1fr)]">
-            <SectionHeading eyebrow="Experience" title="Professional experience" />
-            <div className="space-y-8">
-              {experience.map((job) => (
-                <div key={job.company} className="card-surface p-6 sm:p-7">
-                  <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                    <div>
-                      <h3 className="text-base font-semibold tracking-tight">{job.company}</h3>
-                      <p className="mt-0.5 text-sm text-primary">{job.role}</p>
-                    </div>
-                    <div className="text-sm text-muted-foreground sm:text-right">
-                      <p>{job.period}</p>
-                      <p className="text-xs">{job.location}</p>
-                    </div>
-                  </div>
-                  <ul className="mt-5 space-y-3">
-                    {job.points.map((p) => (
-                      <li
-                        key={p}
-                        className="flex gap-3 text-[15px] leading-relaxed text-muted-foreground"
-                      >
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
-                        <span>
-                          <Highlighted text={p} />
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Projects */}
         <section id="projects" className="border-b border-border bg-surface">
           <div className="container-page py-20">
@@ -280,24 +222,36 @@ function Home() {
           </div>
         </section>
 
-        {/* Skills */}
-        <section id="skills" className="border-b border-border">
+        {/* Experience */}
+        <section id="experience" className="border-b border-border">
           <div className="container-page grid gap-10 py-16 lg:grid-cols-[280px_minmax(0,1fr)]">
-            <SectionHeading eyebrow="Skills" title="Technical skills" />
-            <div className="grid gap-4 sm:grid-cols-2">
-              {skills.map((s) => (
-                <div key={s.group} className="card-surface p-5">
-                  <p className="text-sm font-semibold tracking-tight">{s.group}</p>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {s.items.map((i) => (
-                      <span
-                        key={i}
-                        className="rounded-md border border-border bg-surface px-2.5 py-1 text-xs text-muted-foreground"
-                      >
-                        {i}
-                      </span>
-                    ))}
+            <SectionHeading eyebrow="Experience" title="Professional experience" />
+            <div className="space-y-8">
+              {experience.map((job) => (
+                <div key={job.company} className="card-surface p-6 sm:p-7">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                    <div>
+                      <h3 className="text-base font-semibold tracking-tight">{job.company}</h3>
+                      <p className="mt-0.5 text-sm text-primary">{job.role}</p>
+                    </div>
+                    <div className="text-sm text-muted-foreground sm:text-right">
+                      <p>{job.period}</p>
+                      <p className="text-xs">{job.location}</p>
+                    </div>
                   </div>
+                  <ul className="mt-5 space-y-3">
+                    {job.points.map((p) => (
+                      <li
+                        key={p}
+                        className="flex gap-3 text-[15px] leading-relaxed text-muted-foreground"
+                      >
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
+                        <span>
+                          <Highlighted text={p} />
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
@@ -336,41 +290,26 @@ function Home() {
           </div>
         </section>
 
-        {/* Resume */}
-        <section id="resume" className="border-b border-border bg-surface">
+        {/* Skills */}
+        <section id="skills" className="border-b border-border">
           <div className="container-page grid gap-10 py-16 lg:grid-cols-[280px_minmax(0,1fr)]">
-            <SectionHeading eyebrow="Resume" title="One-page resume" />
-            <div className="card-surface flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-4">
-                <div className="flex size-12 items-center justify-center rounded-lg bg-accent text-accent-foreground">
-                  <FileText className="size-5" />
+            <SectionHeading eyebrow="Skills" title="Technical skills" />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {skills.map((s) => (
+                <div key={s.group} className="card-surface p-5">
+                  <p className="text-sm font-semibold tracking-tight">{s.group}</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {s.items.map((i) => (
+                      <span
+                        key={i}
+                        className="rounded-md border border-border bg-surface px-2.5 py-1 text-xs text-muted-foreground"
+                      >
+                        {i}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold">Ahmed Billoo — Data Analyst</p>
-                  <p className="mt-0.5 text-sm text-muted-foreground">
-                    PDF · replace at <span className="font-mono text-xs">public/Ahmed-Billoo-Resume.pdf</span>
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <a
-                  href={site.resumeUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:bg-accent"
-                >
-                  <ExternalLink className="size-4" />
-                  View Resume
-                </a>
-                <a
-                  href={site.resumeUrl}
-                  download
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-                >
-                  <Download className="size-4" />
-                  Download
-                </a>
-              </div>
+              ))}
             </div>
           </div>
         </section>
