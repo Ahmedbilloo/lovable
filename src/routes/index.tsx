@@ -115,10 +115,12 @@ function Home() {
         <section className="border-b border-border">
           <div className="container-page grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-[1.35fr_1fr]">
             <div>
-              <p className="eyebrow">{site.name}</p>
-              <h1 className="mt-4 text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
-                Data Analyst
+              <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-6xl">
+                {site.name}
               </h1>
+              <p className="mt-3 text-2xl font-medium tracking-tight text-primary sm:text-3xl">
+                Data Analyst
+              </p>
               <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted-foreground sm:text-base">
                 M.S. in Business Analytics graduate with 4+ years of experience applying analytics
                 to pharmaceutical distribution and supply chain operations. Experienced in SQL,
@@ -375,69 +377,64 @@ function Home() {
 
         {/* Contact */}
         <section id="contact">
-          <div className="container-page grid gap-10 py-20 lg:grid-cols-[280px_minmax(0,1fr)]">
-            <div className="max-w-md">
-              <p className="eyebrow">Contact</p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
-                Let's connect.
-              </h2>
-              <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-                I'm open to Data Analyst and Business Analytics opportunities.
-              </p>
-              <div className="mt-7 space-y-3 text-sm">
-                <a
-                  href={`mailto:${site.email}`}
-                  className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <Mail className="size-4" />
-                  {site.email}
-                </a>
-                <a
-                  href={site.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <Linkedin className="size-4" />
-                  linkedin.com/in/ahmedbilloo
-                </a>
-                <a
-                  href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
-                  className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  <Phone className="size-4" />
-                  {site.phone}
-                </a>
+          <div className="container-page grid gap-10 py-16 lg:grid-cols-[280px_minmax(0,1fr)]">
+            <SectionHeading eyebrow="Contact" title="Let's connect." />
+            <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
+              <div>
+                <p className="max-w-md text-[15px] leading-relaxed text-muted-foreground">
+                  I’m open to Data Analyst and Business Analytics opportunities. If you’re hiring or
+                  would like to discuss a project, feel free to reach out.
+                </p>
+                <div className="mt-6 space-y-3 text-sm">
+                  <a
+                    href={`mailto:${site.email}`}
+                    className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    <Mail className="size-4" />
+                    {site.email}
+                  </a>
+                  <a
+                    href={site.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    <Linkedin className="size-4" />
+                    LinkedIn
+                  </a>
+                  {site.phone && (
+                    <a
+                      href={`tel:${site.phone}`}
+                      className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      <Phone className="size-4" />
+                      {site.phone}
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
 
-            <form
-              className="card-surface space-y-4 p-6"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const data = new FormData(e.currentTarget);
-                const subject = encodeURIComponent(`Portfolio enquiry — ${data.get("name")}`);
-                const body = encodeURIComponent(
-                  `${data.get("message")}\n\nFrom: ${data.get("name")} (${data.get("email")})`,
-                );
-                window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
-                setSent(true);
-              }}
-            >
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-1.5">
-                  <label htmlFor="name" className="text-xs font-medium text-muted-foreground">
+              <form
+                className="card-surface space-y-4 p-6"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setSent(true);
+                }}
+              >
+                <div>
+                  <label htmlFor="name" className="text-sm font-medium">
                     Name
                   </label>
                   <input
                     id="name"
                     name="name"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
+                    className="mt-1.5 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+                    placeholder="Your name"
                   />
                 </div>
-                <div className="space-y-1.5">
-                  <label htmlFor="email" className="text-xs font-medium text-muted-foreground">
+                <div>
+                  <label htmlFor="email" className="text-sm font-medium">
                     Email
                   </label>
                   <input
@@ -445,34 +442,37 @@ function Home() {
                     name="email"
                     type="email"
                     required
-                    className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
+                    className="mt-1.5 w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+                    placeholder="you@example.com"
                   />
                 </div>
-              </div>
-              <div className="space-y-1.5">
-                <label htmlFor="message" className="text-xs font-medium text-muted-foreground">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
-                />
-              </div>
-              <button
-                type="submit"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                Send message
-              </button>
-              {sent && (
-                <p className="text-sm text-muted-foreground">
-                  Your email client should now be open with the message drafted.
-                </p>
-              )}
-            </form>
+                <div>
+                  <label htmlFor="message" className="text-sm font-medium">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={5}
+                    className="mt-1.5 w-full resize-none rounded-lg border border-border bg-background px-3 py-2.5 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
+                    placeholder="How can I help?"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+                >
+                  <Mail className="size-4" />
+                  Send Message
+                </button>
+                {sent && (
+                  <p className="text-center text-sm text-muted-foreground">
+                    Thanks — your message has been noted. This form is currently a front-end demo.
+                  </p>
+                )}
+              </form>
+            </div>
           </div>
         </section>
       </main>
