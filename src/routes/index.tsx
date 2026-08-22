@@ -146,24 +146,30 @@ function Home() {
             </div>
 
             <div className="justify-self-center lg:justify-self-end">
-              <div className="aspect-square w-56 overflow-hidden rounded-2xl border border-border bg-surface sm:w-72">
-                <div className="flex h-full flex-col items-center justify-center gap-3 bg-surface">
-                  <ImageIcon className="size-6 text-muted-foreground" />
-                  <p className="px-8 text-center text-xs text-muted-foreground">
-                    Headshot placeholder — replace with your own photograph
-                  </p>
+              <div className="w-56 rounded-3xl border border-border bg-card p-5 shadow-lg sm:w-72 sm:p-6">
+                <div className="aspect-square overflow-hidden rounded-2xl border border-border bg-surface">
+                  <div className="flex h-full flex-col items-center justify-center gap-3 bg-surface">
+                    <ImageIcon className="size-6 text-muted-foreground" />
+                    <p className="px-8 text-center text-xs text-muted-foreground">
+                      Headshot placeholder — replace with your own photograph
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="mt-4 grid grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-border bg-card p-4 sm:p-5">
-                  <p className="text-sm text-muted-foreground">Education</p>
-                  <p className="mt-2 text-base font-semibold leading-snug">M.S. Business Analytics</p>
-                  <p className="mt-2 text-sm text-primary">CSU Sacramento</p>
-                </div>
-                <div className="rounded-2xl border border-border bg-card p-4 sm:p-5">
-                  <p className="text-sm text-muted-foreground">Focus</p>
-                  <p className="mt-2 text-base font-semibold leading-snug">Data Analytics</p>
-                  <p className="mt-2 text-sm text-primary">Machine Learning</p>
+
+                <div className="mt-4 grid grid-cols-2 gap-3">
+                  <div className="rounded-xl border border-border bg-surface p-3.5">
+                    <p className="text-xs text-muted-foreground">Education</p>
+                    <p className="mt-2 text-sm font-semibold leading-snug text-foreground">
+                      M.S. Business Analytics
+                    </p>
+                    <p className="mt-2 text-xs text-primary">CSU Sacramento</p>
+                  </div>
+                  <div className="rounded-xl border border-border bg-surface p-3.5">
+                    <p className="text-xs text-muted-foreground">Focus</p>
+                    <p className="mt-2 text-sm font-semibold leading-snug text-foreground">
+                      Data Analytics &amp; ML
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
