@@ -10,11 +10,10 @@ export const site = {
 };
 
 export const navLinks = [
-  { label: "About", hash: "about" },
-  { label: "Experience", hash: "experience" },
   { label: "Projects", hash: "projects" },
-  { label: "Skills", hash: "skills" },
+  { label: "Experience", hash: "experience" },
   { label: "Education", hash: "education" },
+  { label: "Skills", hash: "skills" },
   { label: "Contact", hash: "contact" },
 ] as const;
 
